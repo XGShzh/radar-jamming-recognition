@@ -117,7 +117,24 @@ python main.py --mode eval --weights results/cbam_yolov8n_6shot_phase2/weights/b
 # 步骤 4：小样本梯度实验（3~8 样本/类）
 python main.py --mode fewshot --epochs 50 --device cuda
 ```
+# anacoda 完整训练流程如下：
 
+# 1. 激活环境，进入项目目录
+conda activate jamming
+cd /d D:\jamming_recognition_code\jamming_recognition
+
+# 2. 删除旧的训练结果
+rmdir /s /q runs\detect\results
+rmdir /s /q dataset
+
+# 3. 生成数据集
+python main.py --mode dataset --n_shots 6 --n_test 1000
+
+# 4. 训练（等训练完再运行下一条）
+python main.py --mode train --n_shots 6 --epochs 200 --device cuda
+
+# 5. 评估并生成论文图表
+python main.py --mode eval --device cpu
 ---
 
 ## 三、信号参数说明
