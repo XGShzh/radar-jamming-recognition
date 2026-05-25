@@ -1,0 +1,7 @@
+{
+  "mode": "train",
+  "n_shots": 6,
+  "jnr_db": 5,
+  "epochs": 200,
+  "elapsed_s": 1957.7
+}
